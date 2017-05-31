@@ -43,10 +43,6 @@ class sfDependencyInjectionPluginConfiguration extends sfPluginConfiguration
         } else {
             require $this->configuration->getConfigCache()->checkConfig('config/services.yml');
             
-            if ( !class_exists(sfConfig::get('sf_container_class')) ) {
-                sfConfig::set('sf_container_class', preg_replace('/Debug/', '', sfConfig::get('sf_container_class')));
-            } 
-            
             $containerClass = sfConfig::get('sf_container_class');
             $container = new $containerClass();
         }
